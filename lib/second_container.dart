@@ -9,14 +9,19 @@ class SecondContainer extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     // TODO: implement build
     return Container(
+      
       margin: EdgeInsets.all(10),
+       
       // height: size.width * 0.9,
       decoration: BoxDecoration(
+       
         color: Colors.brown,
         border: Border.all(width: 1),
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        boxShadow: [BoxShadow(blurRadius: 5)],
+        boxShadow: [BoxShadow(blurRadius: 5, )],
       ),
+      
+      
       child: Center(
         child: Column(
           children: [

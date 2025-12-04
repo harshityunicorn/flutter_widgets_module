@@ -8,6 +8,7 @@ class SampleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      
       clipBehavior: Clip.hardEdge,
       margin: EdgeInsets.all(20),
       elevation: 20,

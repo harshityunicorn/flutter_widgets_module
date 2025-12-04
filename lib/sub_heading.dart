@@ -7,7 +7,6 @@ class SubHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8),
       child: Center(
