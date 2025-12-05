@@ -4,7 +4,7 @@ class ListBuilder extends StatelessWidget {
   ListBuilder(this.items, {super.key});
 
   final _scrollController = ScrollController(debugLabel: "scroll",);
-
+  
   List<String> items;
 
   @override
@@ -14,7 +14,6 @@ class ListBuilder extends StatelessWidget {
       child: ListView.builder(
         // reverse: true,
         // primary: true,
-
         controller: _scrollController,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
@@ -26,6 +25,7 @@ class ListBuilder extends StatelessWidget {
             leading: CircleAvatar(),
             title: Text(items[index]),
             subtitle: Text("dummy text"),
+            
           );
         },
       ),

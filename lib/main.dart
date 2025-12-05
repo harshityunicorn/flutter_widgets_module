@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/custom_scroll.dart';
 
 import 'package:flutter_widgets/first_container.dart';
 import 'package:flutter_widgets/grid_view_example.dart';
 import 'package:flutter_widgets/list_view_container.dart';
+import 'package:flutter_widgets/nested_scroll.dart';
 import 'package:flutter_widgets/second_container.dart';
 import 'package:flutter_widgets/sub_heading.dart';
 import 'package:flutter_widgets/text_field_and_form_container.dart';
@@ -18,17 +20,116 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return MaterialApp(
       title: 'Flutter Demo',
 
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: Scaffold(
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        //   backgroundColor: Colors.amber,
+        //   highlightElevation: 10,
+        //   child: Icon(Icons.add),
+
+        // ),
+
+        // custome floating action button :
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          label: Icon(Icons.add),
+          backgroundColor: Colors.amber,
+          extendedPadding: EdgeInsets.all(15),
+        ),
+
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+
+        // endDrawer: Drawer(), // drawer right side of the scaffold
+        drawer: Drawer(
+          elevation: 10,
+          surfaceTintColor: Colors.amber,
+          shadowColor: Colors.black,
+
+          child: Builder(
+            builder: (context) {
+              return ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  UserAccountsDrawerHeader(
+                    accountName: Text("Harshit"),
+                    accountEmail: Text("harshit@gmail.com"),
+                    currentAccountPicture: Image.network(
+                      'https://img.freepik.com/free-photo/abstract-flowing-neon-wave-background_53876-101942.jpg',
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          "https://img.freepik.com/free-photo/abstract-flowing-neon-wave-background_53876-101942.jpg",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  // DrawerHeader(
+                  //   decoration: BoxDecoration(color: Colors.lightBlue),
+                  //   child: Text("Drawer"),
+                  // ),
+                  ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text("Home"),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.supervised_user_circle),
+                    title: Text("Profile"),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Badge(label: Text("5"), child: Icon(Icons.home), ),
+              label: "home",
+              tooltip: "home",
+              
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.face),
+              label: "profile",
+              tooltip: "profile",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "setting",
+              tooltip: "setting",
+            ),
+          ],
+          backgroundColor: Colors.white70,
+          currentIndex: 1,
+          elevation: 5,
+
+          selectedItemColor: Colors.amber,
+          type: BottomNavigationBarType.shifting,
+          unselectedItemColor: Colors.black,
+          showUnselectedLabels: true,
+        ),
+
         resizeToAvoidBottomInset: true,
         appBar: AppBar(title: Text("Flutter widgets")),
         body: SingleChildScrollView(
           child: Column(
+            spacing: 2,
             children: [
               SubHeading("Container, Text and Card Widgets"),
               FirstContainer(),
@@ -40,7 +141,11 @@ class MyApp extends StatelessWidget {
               SubHeading("Grid views"),
               GridViewExample(),
               SubHeading("Wraps : "),
-              WrapExample()
+              WrapExample(),
+              SubHeading("Custome scroll view"),
+              CustomScroll(),
+              SubHeading("Nested scroll view"),
+              NestedScroll(),
             ],
           ),
         ),

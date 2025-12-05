@@ -56,6 +56,7 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
               helperText: "helper text",
             ),
             autocorrect: true,
+            
             autofillHints: ["Harshit", "Suresh", "yunicron"],
             // autofocus: true,  // focuses when the page loads.
             onChanged: (value) {
@@ -69,6 +70,7 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
 
           SubHeading("TextFormField"),
           TextFormField(
+            
             decoration:  InputDecoration(
               icon: Icon(Icons.text_fields),
               labelText: "input text field",
@@ -104,11 +106,12 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
                     enableInteractiveSelection: false,
                     textInputAction: TextInputAction.newline,
                     controller: textFieldController1,
+                    
                     // maxLines: 5,
                     // maxLength: 10,
                     
                     decoration: InputDecoration(
-                    
+                      enabledBorder: UnderlineInputBorder(),
                       icon: Icon(Icons.view_comfy_sharp),
                       border: OutlineInputBorder(),
                       labelText: "text form field in form 1",
@@ -121,6 +124,7 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
                     },
                   ),
                   TextFormField(
+                    
                     focusNode: textFieldFocus2,
                     onFieldSubmitted: (value) =>
                         FocusScope.of(context).requestFocus(textFieldFocus3),
