@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/caraosel_scroll.dart';
 import 'package:flutter_widgets/custom_scroll.dart';
 
 import 'package:flutter_widgets/first_container.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         // custome floating action button :
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
+          
           label: Icon(Icons.add),
           backgroundColor: Colors.amber,
           extendedPadding: EdgeInsets.all(15),
@@ -44,11 +46,14 @@ class MyApp extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
 
+        
+        // endDrawerEnableOpenDragGesture: false, // disable the drawer opening with swipe gesture.
         // endDrawer: Drawer(), // drawer right side of the scaffold
         drawer: Drawer(
           elevation: 10,
           surfaceTintColor: Colors.amber,
           shadowColor: Colors.black,
+          
 
           child: Builder(
             builder: (context) {
@@ -99,10 +104,9 @@ class MyApp extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Badge(label: Text("5"), child: Icon(Icons.home), ),
+              icon: Badge(label: Text("5"), child: Icon(Icons.home)),
               label: "home",
               tooltip: "home",
-              
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.face),
@@ -112,7 +116,7 @@ class MyApp extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "setting",
-              tooltip: "setting",
+              tooltip: "setting"
             ),
           ],
           backgroundColor: Colors.white70,
@@ -123,6 +127,9 @@ class MyApp extends StatelessWidget {
           type: BottomNavigationBarType.shifting,
           unselectedItemColor: Colors.black,
           showUnselectedLabels: true,
+          onTap: (value) {
+            print(value);
+          },
         ),
 
         resizeToAvoidBottomInset: true,
@@ -146,6 +153,10 @@ class MyApp extends StatelessWidget {
               CustomScroll(),
               SubHeading("Nested scroll view"),
               NestedScroll(),
+              SubHeading("Nested scroll tab bar"),
+              NestedScrollTabBar(),
+              SubHeading("Carousel scroll view"),
+              CaraoselScroll()
             ],
           ),
         ),

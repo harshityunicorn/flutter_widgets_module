@@ -14,18 +14,19 @@ class ListBuilder extends StatelessWidget {
       child: ListView.builder(
         // reverse: true,
         // primary: true,
+        
         controller: _scrollController,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         padding: EdgeInsets.all(12),
         itemCount: items.length,
+
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(),
             title: Text(items[index]),
             subtitle: Text("dummy text"),
-            
           );
         },
       ),

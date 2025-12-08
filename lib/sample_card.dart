@@ -14,6 +14,7 @@ class SampleCard extends StatelessWidget {
       elevation: 20,
       color: Colors.grey,
       child: InkWell(
+        
         splashColor: Colors.blue.withAlpha(30),
         onTap: () => {debugPrint("card taped")},
         child: Column(

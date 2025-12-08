@@ -87,7 +87,7 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
               return null;
             },
             textAlign: TextAlign.center,
-            keyboardType: TextInputType.twitter,
+            keyboardType: TextInputType.none,
           ),
 
           SubHeading("Forms"),
