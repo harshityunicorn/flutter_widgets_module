@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/assets_grid.dart';
+import 'package:flutter_widgets/button_events.dart';
+import 'package:flutter_widgets/cached_images.dart';
 import 'package:flutter_widgets/caraosel_scroll.dart';
 import 'package:flutter_widgets/custom_scroll.dart';
 
@@ -6,7 +9,9 @@ import 'package:flutter_widgets/first_container.dart';
 import 'package:flutter_widgets/grid_view_example.dart';
 import 'package:flutter_widgets/list_view_container.dart';
 import 'package:flutter_widgets/nested_scroll.dart';
+import 'package:flutter_widgets/network_image_list.dart';
 import 'package:flutter_widgets/second_container.dart';
+import 'package:flutter_widgets/stream_builder_example.dart';
 import 'package:flutter_widgets/sub_heading.dart';
 import 'package:flutter_widgets/text_field_and_form_container.dart';
 import 'package:flutter_widgets/wrap_example.dart';
@@ -37,7 +42,7 @@ class MyApp extends StatelessWidget {
         // custome floating action button :
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {},
-          
+
           label: Icon(Icons.add),
           backgroundColor: Colors.amber,
           extendedPadding: EdgeInsets.all(15),
@@ -46,14 +51,12 @@ class MyApp extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
 
-        
         // endDrawerEnableOpenDragGesture: false, // disable the drawer opening with swipe gesture.
         // endDrawer: Drawer(), // drawer right side of the scaffold
         drawer: Drawer(
           elevation: 10,
           surfaceTintColor: Colors.amber,
           shadowColor: Colors.black,
-          
 
           child: Builder(
             builder: (context) {
@@ -69,9 +72,7 @@ class MyApp extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       image: DecorationImage(
-                        image: NetworkImage(
-                          "https://img.freepik.com/free-photo/abstract-flowing-neon-wave-background_53876-101942.jpg",
-                        ),
+                        image: AssetImage('assets/images/image1.jpg'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -116,7 +117,7 @@ class MyApp extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "setting",
-              tooltip: "setting"
+              tooltip: "setting",
             ),
           ],
           backgroundColor: Colors.white70,
@@ -156,7 +157,17 @@ class MyApp extends StatelessWidget {
               SubHeading("Nested scroll tab bar"),
               NestedScrollTabBar(),
               SubHeading("Carousel scroll view"),
-              CaraoselScroll()
+              CaraoselScroll(),
+              SubHeading("Asset images"),
+              AssetsGrid(),
+              SubHeading("Network images"),
+              NetworkImageList(),
+              SubHeading("Cached network images"),
+              CachedImages(), 
+              SubHeading("Stream builder"),
+              StreamBuilderExample(), 
+              SubHeading("Gesture detectors"), 
+              ButtonEvents()
             ],
           ),
         ),

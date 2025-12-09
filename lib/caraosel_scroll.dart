@@ -24,12 +24,29 @@ class _CaraoselScrollState extends State<CaraoselScroll> {
     return SizedBox(
       height: 500,
       child: CarouselView(
-        
-        itemExtent: 300, 
+        itemExtent: 300,
         children: [
-          Container(color: Colors.red),
-          Container(color: Colors.green),
-          Container(color: Colors.blue),
+          Container(
+            color: Colors.red,
+            child: Image(
+              image: AssetImage('assets/images/image1.jpg'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            color: Colors.green,
+            child: Image(
+              image: AssetImage('assets/images/image1.jpg'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            color: Colors.blue,
+            child: Image(
+              image: AssetImage('assets/images/image1.jpg'),
+              fit: BoxFit.fill,
+            ),
+          ),
         ],
       ),
     );

@@ -8,6 +8,7 @@ class CustomScroll extends StatelessWidget {
       height: 500,
       // width: 500,
       child: CustomScrollView(
+        center: ValueKey('middle'),
         anchor: 0,
         // scrollDirection: Axis.horizontal,
         scrollBehavior: MaterialScrollBehavior(),
@@ -15,10 +16,12 @@ class CustomScroll extends StatelessWidget {
 
         slivers: [
           SliverAppBar(
+            pinned: true,
+            key: ValueKey('top'),
             leading: Icon(Icons.note),
             expandedHeight: 200,
-            floating: true,
-            snap: true,
+            // floating: true,
+            // snap: true,
             elevation: 25,
 
             // pinned: true, // pins the app bar
@@ -31,8 +34,6 @@ class CustomScroll extends StatelessWidget {
               ),
             ),
           ),
-
-
 
           // SliverAppBar(
           //   expandedHeight: 200, // Set the height of the header when expanded
@@ -85,17 +86,14 @@ class CustomScroll extends StatelessWidget {
           //   ),
           // ),
 
-
-
           // SliverToBoxAdapter(
           //   child: Padding(
           //     padding: EdgeInsetsGeometry.all(12),
           //     child: Text("Heading 1"),
           //   ),
           // ),
-
-
           SliverList(
+            key: ValueKey('middle'),
             delegate: SliverChildBuilderDelegate(
               (context, index) => ListTile(title: Text("Item $index")),
               childCount: 20,

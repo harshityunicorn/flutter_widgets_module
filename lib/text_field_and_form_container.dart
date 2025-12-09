@@ -28,6 +28,21 @@ class _TextFieldAndFormContainerState extends State<TextFieldAndFormContainer> {
 
   final _formKey = GlobalKey<FormState>();
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+
+  @override
+  void didUpdateWidget(covariant TextFieldAndFormContainer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
 
   @override
   void dispose() {
