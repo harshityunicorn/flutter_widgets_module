@@ -4,6 +4,9 @@ import 'package:flutter_widgets/button_events.dart';
 import 'package:flutter_widgets/cached_images.dart';
 import 'package:flutter_widgets/caraosel_scroll.dart';
 import 'package:flutter_widgets/custom_scroll.dart';
+import 'package:flutter_widgets/page_view_example.dart';
+import 'package:flutter_widgets/tab_bar_example.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:flutter_widgets/first_container.dart';
 import 'package:flutter_widgets/grid_view_example.dart';
@@ -11,6 +14,7 @@ import 'package:flutter_widgets/list_view_container.dart';
 import 'package:flutter_widgets/nested_scroll.dart';
 import 'package:flutter_widgets/network_image_list.dart';
 import 'package:flutter_widgets/second_container.dart';
+import 'package:flutter_widgets/snack_bar_example.dart';
 import 'package:flutter_widgets/stream_builder_example.dart';
 import 'package:flutter_widgets/sub_heading.dart';
 import 'package:flutter_widgets/text_field_and_form_container.dart';
@@ -22,6 +26,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  void showToast() {
+    Fluttertoast.showToast(
+      msg: "Toast",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+    );
+
+  }
 
   // This widget is the root of your application.
   @override
@@ -41,7 +54,11 @@ class MyApp extends StatelessWidget {
 
         // custome floating action button :
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: (){
+            showModalBottomSheet(context: context, builder: (context){
+              return Text("Bottom modal sheet");
+            });
+          },
 
           label: Icon(Icons.add),
           backgroundColor: Colors.amber,
@@ -102,42 +119,80 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Badge(label: Text("5"), child: Icon(Icons.home)),
-              label: "home",
-              tooltip: "home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.face),
-              label: "profile",
-              tooltip: "profile",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "setting",
-              tooltip: "setting",
-            ),
-          ],
-          backgroundColor: Colors.white70,
-          currentIndex: 1,
-          elevation: 5,
+        // BottomNavigation Bar :
 
-          selectedItemColor: Colors.amber,
-          type: BottomNavigationBarType.shifting,
-          unselectedItemColor: Colors.black,
-          showUnselectedLabels: true,
-          onTap: (value) {
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: [
+        //     BottomNavigationBarItem(
+        //       icon: Badge(label: Text("5"), child: Icon(Icons.home)),
+        //       label: "home",
+        //       tooltip: "home",
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.face),
+        //       label: "profile",
+        //       tooltip: "profile",
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.settings),
+        //       label: "setting",
+        //       tooltip: "setting",
+        //     ),
+        //   ],
+        //   backgroundColor: Colors.white70,
+        //   currentIndex: 1,
+        //   elevation: 5,
+
+        //   selectedItemColor: Colors.amber,
+        //   type: BottomNavigationBarType.shifting,
+        //   unselectedItemColor: Colors.black,
+        //   showUnselectedLabels: true,
+        //   onTap: (value) {
+        //     print(value);
+        //   },
+        // ),
+
+        // Navigation bar :
+        bottomNavigationBar: NavigationBar(
+          // selectedIndex: 1,
+          onDestinationSelected: (value) {
             print(value);
           },
+
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              label: "Home",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person_2_outlined),
+              label: "Profile",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.settings_outlined),
+              label: "Settings",
+            ),
+          ],
         ),
 
         resizeToAvoidBottomInset: true,
         appBar: AppBar(title: Text("Flutter widgets")),
-        body: SingleChildScrollView(
-          child: Column(
-            spacing: 2,
+        body: RefreshIndicator(
+          // displacement: 100, // refresh icon displacement from the top.
+          elevation: 20,
+
+          // semanticsLabel: "LABEL" ,
+          notificationPredicate: (notification) {
+            return notification.depth == 0;
+            //will only refresh for the scroll views with depth value 0,
+          },
+          onRefresh: () {
+            print("refreshing...");
+            return Future.delayed(Duration(seconds: 3));
+          },
+          backgroundColor: Colors.lightGreen,
+          color: Colors.white,
+          child: ListView(
             children: [
               SubHeading("Container, Text and Card Widgets"),
               FirstContainer(),
@@ -163,11 +218,17 @@ class MyApp extends StatelessWidget {
               SubHeading("Network images"),
               NetworkImageList(),
               SubHeading("Cached network images"),
-              CachedImages(), 
+              CachedImages(),
               SubHeading("Stream builder"),
-              StreamBuilderExample(), 
-              SubHeading("Gesture detectors"), 
-              ButtonEvents()
+              StreamBuilderExample(),
+              SubHeading("Gesture detectors and Buttons"),
+              ButtonEvents(),
+              SubHeading("SnackBar, Toast and Visibility"),
+              SnackBarExample(),
+              SubHeading("Page view"),
+              PageViewExample(),
+              SubHeading("Tab Bar"),
+              TabBarExample(),
             ],
           ),
         ),

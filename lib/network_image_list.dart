@@ -14,6 +14,7 @@ class NetworkImageList extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               margin: EdgeInsets.all(8),
               child: Image(
+                
                 height: 190,
                 fit: BoxFit.fitWidth,
                 image: NetworkImage(
