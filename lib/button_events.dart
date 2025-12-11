@@ -93,6 +93,7 @@ class ButtonEvents extends StatelessWidget {
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 12,
               children: [
                 BackButton(),
                 CloseButton(),
@@ -102,12 +103,22 @@ class ButtonEvents extends StatelessWidget {
                   },
                 ),
                 DropdownButton(
-                  value: 'item1',
-                  items: [
-                    DropdownMenuItem(value: 'item1', child: Text("item 1")),
-                    DropdownMenuItem(value: 'item2', child: Text("item 2")),
-                    DropdownMenuItem(value: 'item3', child: Text("item 2")),
-                  ],
+                  value: 'Apple',
+                  items: ['Apple', 'Banana', 'Mango']
+                      .map(
+                        (item) =>
+                            DropdownMenuItem(value: item, child: Text(item)),
+                      )
+                      .toList(),
+
+                  selectedItemBuilder: (context) {
+                    return ['Apple', 'Banana', 'Mango'].map((item) {
+                      return Text(
+                        "Selected: $item",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      );
+                    }).toList();
+                  },
                   onChanged: (value) {},
                 ),
               ],

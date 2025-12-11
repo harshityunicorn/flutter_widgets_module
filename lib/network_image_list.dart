@@ -6,6 +6,7 @@ class NetworkImageList extends StatelessWidget {
     return SizedBox(
       height: 500,
       child: ListView(
+        shrinkWrap: true,
         padding: EdgeInsets.all(12),
         children: [
           Padding(

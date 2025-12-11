@@ -8,6 +8,7 @@ class SnackBarExample extends StatelessWidget {
     content: Text("Snack bar"),
     duration: Duration(seconds: 2),
     shape: BeveledRectangleBorder(),
+
     // behavior: SnackBarBehavior.floating,
     action: SnackBarAction(
       label: 'okay',
@@ -56,6 +57,7 @@ class SnackBarExample extends StatelessWidget {
               visible: true, // child will not be visible if set to false;
               // maintainState: true,
               // maintainAnimation: true,
+              
               replacement: Text("not visible"),
               child: ElevatedButton(
                 onPressed: () {},

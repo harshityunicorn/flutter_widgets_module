@@ -13,18 +13,19 @@ class PageViewExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SizedBox(
       height: 600,
       child: PageView.builder(
         itemCount: 5,
         physics: BouncingScrollPhysics(),
+        
+        // physics: NeverScrollableScrollPhysics(),
+        // controller: PageController(initialPage: 1),
+
         itemBuilder: (context, index) {
-          return Center(
-            child: Text(
-              "Page $index",
-              style: TextStyle(backgroundColor: pageColors[index]),
-            ),
+          return Container(
+            decoration: BoxDecoration(color: pageColors[index]),
+            child: Center(child: Text("Page $index")),
           );
         },
       ),

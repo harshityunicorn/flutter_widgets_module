@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/alertbar.dart';
+import 'package:flutter_widgets/animation_container_example.dart';
 import 'package:flutter_widgets/assets_grid.dart';
 import 'package:flutter_widgets/button_events.dart';
 import 'package:flutter_widgets/cached_images.dart';
 import 'package:flutter_widgets/caraosel_scroll.dart';
 import 'package:flutter_widgets/custom_scroll.dart';
 import 'package:flutter_widgets/page_view_example.dart';
+import 'package:flutter_widgets/pickers.dart';
 import 'package:flutter_widgets/tab_bar_example.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -27,15 +30,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  void showToast() {
-    Fluttertoast.showToast(
-      msg: "Toast",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-    );
-
-  }
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -54,11 +48,7 @@ class MyApp extends StatelessWidget {
 
         // custome floating action button :
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: (){
-            showModalBottomSheet(context: context, builder: (context){
-              return Text("Bottom modal sheet");
-            });
-          },
+          onPressed: (){},
 
           label: Icon(Icons.add),
           backgroundColor: Colors.amber,
@@ -159,10 +149,12 @@ class MyApp extends StatelessWidget {
             print(value);
           },
 
+
           destinations: [
             NavigationDestination(
               icon: Icon(Icons.home_outlined),
               label: "Home",
+
             ),
             NavigationDestination(
               icon: Icon(Icons.person_2_outlined),
@@ -229,6 +221,12 @@ class MyApp extends StatelessWidget {
               PageViewExample(),
               SubHeading("Tab Bar"),
               TabBarExample(),
+              SubHeading("Alert dialogue example"), 
+              Alertbar(), 
+              SubHeading("Date, Time and Image Pickers"), 
+              Pickers(), 
+              SubHeading("Animation widgets"), 
+              AnimationContainerExample()
             ],
           ),
         ),

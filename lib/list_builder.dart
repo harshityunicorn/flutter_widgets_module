@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class ListBuilder extends StatelessWidget {
   ListBuilder(this.items, {super.key});
 
-  final _scrollController = ScrollController(debugLabel: "scroll",);
-  
+  final _scrollController = ScrollController(debugLabel: "scroll");
+
   List<String> items;
 
   @override
@@ -14,7 +14,6 @@ class ListBuilder extends StatelessWidget {
       child: ListView.builder(
         // reverse: true,
         // primary: true,
-        
         controller: _scrollController,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
@@ -24,7 +23,12 @@ class ListBuilder extends StatelessWidget {
 
         itemBuilder: (context, index) {
           return ListTile(
-            leading: CircleAvatar(),
+            trailing: Icon(Icons.done),
+            leading: CircleAvatar(child: Icon(Icons.person)),
+            dense: true,
+            isThreeLine: false,
+            selected: false,
+            selectedColor: const Color.fromARGB(255, 46, 167, 56),
             title: Text(items[index]),
             subtitle: Text("dummy text"),
           );
