@@ -7,7 +7,7 @@ class Alertbar extends StatelessWidget {
     void handleShowModalBottomSheet() async {
       await showModalBottomSheet(
         showDragHandle: true,
-        context: context,
+        context: context, 
         sheetAnimationStyle: AnimationStyle(
           // curve: CatmullRomCurve.precompute([
           //   Offset(0.2, 0.3),

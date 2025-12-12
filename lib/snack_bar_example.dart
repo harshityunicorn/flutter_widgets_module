@@ -8,7 +8,7 @@ class SnackBarExample extends StatelessWidget {
     content: Text("Snack bar"),
     duration: Duration(seconds: 2),
     shape: BeveledRectangleBorder(),
-
+    showCloseIcon: true,
     // behavior: SnackBarBehavior.floating,
     action: SnackBarAction(
       label: 'okay',
@@ -35,7 +35,7 @@ class SnackBarExample extends StatelessWidget {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-  
+
     return SizedBox(
       height: 300,
       child: Column(
@@ -55,9 +55,9 @@ class SnackBarExample extends StatelessWidget {
           Center(
             child: Visibility(
               visible: true, // child will not be visible if set to false;
+
               // maintainState: true,
               // maintainAnimation: true,
-              
               replacement: Text("not visible"),
               child: ElevatedButton(
                 onPressed: () {},

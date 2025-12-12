@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/alertbar.dart';
-import 'package:flutter_widgets/animation_container_example.dart';
+import 'package:flutter_widgets/animation_examples.dart';
 import 'package:flutter_widgets/assets_grid.dart';
 import 'package:flutter_widgets/button_events.dart';
 import 'package:flutter_widgets/cached_images.dart';
@@ -8,6 +8,9 @@ import 'package:flutter_widgets/caraosel_scroll.dart';
 import 'package:flutter_widgets/custom_scroll.dart';
 import 'package:flutter_widgets/page_view_example.dart';
 import 'package:flutter_widgets/pickers.dart';
+import 'package:flutter_widgets/slider_example.dart';
+import 'package:flutter_widgets/stepper_example.dart';
+import 'package:flutter_widgets/switch_button.dart';
 import 'package:flutter_widgets/tab_bar_example.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -226,7 +229,13 @@ class MyApp extends StatelessWidget {
               SubHeading("Date, Time and Image Pickers"), 
               Pickers(), 
               SubHeading("Animation widgets"), 
-              AnimationContainerExample()
+              AnimationExamples(), 
+              SubHeading("Switch"), 
+              SwitchButton(),
+              SubHeading("Steppers"), 
+              StepperExample(), 
+              SubHeading("Sliders"), 
+              SliderExample()
             ],
           ),
         ),

@@ -14,6 +14,7 @@ class ButtonEvents extends StatelessWidget {
               style: TextButton.styleFrom(
                 foregroundColor: Colors.amber,
                 backgroundColor: Colors.teal,
+                
                 overlayColor: const Color.fromARGB(
                   255,
                   97,
@@ -80,6 +81,7 @@ class ButtonEvents extends StatelessWidget {
               onDoubleTap: () => print("Double tap"),
               onLongPress: () => print("Long pressed"),
               onTapUp: (details) => print("Taped up"),
+
               child: Card(
                 margin: EdgeInsets.all(16),
                 child: ListTile(
@@ -103,6 +105,7 @@ class ButtonEvents extends StatelessWidget {
                   },
                 ),
                 DropdownButton(
+
                   value: 'Apple',
                   items: ['Apple', 'Banana', 'Mango']
                       .map(
@@ -134,8 +137,9 @@ class ButtonEvents extends StatelessWidget {
               onLongPress: () => print("Long press on Gesture detector"),
               // onScaleStart: (details) =>
               //     print("Scalling started in gesture controller"),
+
               onHorizontalDragStart: (details) => print("Horizontal drag"),
-              onVerticalDragStart: (details) => print("vertival drag"),
+              onVerticalDragStart: (details) => print("vertial drag"),
               child: Card(
                 child: Container(
                   height: 150,

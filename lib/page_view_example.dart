@@ -21,7 +21,7 @@ class PageViewExample extends StatelessWidget {
         
         // physics: NeverScrollableScrollPhysics(),
         // controller: PageController(initialPage: 1),
-
+        
         itemBuilder: (context, index) {
           return Container(
             decoration: BoxDecoration(color: pageColors[index]),
