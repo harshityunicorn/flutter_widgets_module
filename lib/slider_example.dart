@@ -21,7 +21,7 @@ class _SliderExample extends State<SliderExample> {
           max: 100,
           value: firstSliderValue,
           divisions: 100,
-          
+
           secondaryTrackValue: 50,
           label: firstSliderValue.round().toString(),
           year2023: true,
@@ -34,8 +34,22 @@ class _SliderExample extends State<SliderExample> {
           },
         ),
 
-        SubHeading("Popup Menu Button"), 
+        SubHeading("Popup Menu Button"),
 
+        PopupMenuButton(
+          child: Text("Popup"),
+          onSelected: (value) {
+            print(value);
+          },
+          itemBuilder: (context) {
+            return [
+              PopupMenuItem(value: {"name": "harshit"}, child: Text("item 1")),
+              PopupMenuItem(value: {"name": "devesh"}, child: Text("item 2")),
+            ];
+          },
+        ),
+
+        SizedBox(height: 100),
       ],
     );
   }

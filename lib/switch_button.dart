@@ -27,7 +27,7 @@ class _SwitchButtonState extends State<SwitchButton> {
               setState(() {
                 isBlack = value;
               });
-            },
+            },           
           ),
         ),
       ],

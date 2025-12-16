@@ -9,6 +9,7 @@ class SnackBarExample extends StatelessWidget {
     duration: Duration(seconds: 2),
     shape: BeveledRectangleBorder(),
     showCloseIcon: true,
+    
     // behavior: SnackBarBehavior.floating,
     action: SnackBarAction(
       label: 'okay',
